@@ -93,4 +93,62 @@ public class LibroRepository {
         return null;
     }
 
+    public List<Libro> obtenerLibrosPorAnio(int anio){
+        List<Libro> librosEncontrados = new ArrayList<>();
+        for(Libro libro: listaLibros){
+            if(libro.getFechaPublicacion() == anio){
+                librosEncontrados.add(libro);
+            }
+        }return  librosEncontrados;
+    }
+
+    public List<Libro> obtenerLibrosPorAutor(String autor){
+        List<Libro> librosEncontrados = new ArrayList<>();
+        for(Libro libro: listaLibros){
+            if(libro.getAutor().equals(autor)){
+                librosEncontrados.add(libro);
+            }
+        }
+        return librosEncontrados;
+    }
+
+    public Libro obtenerLibroAntiguo(){
+        Libro libroEncontrado = listaLibros.get(0);
+
+        for(Libro libro: listaLibros){
+            if(libro.getFechaPublicacion() < libroEncontrado.getFechaPublicacion()){
+                libroEncontrado = libro;
+            }
+        }
+        return libroEncontrado;
+    }
+
+    public Libro obtenerLibroNuevo(){
+        Libro libroEncontrado = listaLibros.get(0);
+
+        for(Libro libro: listaLibros){
+            if(libro.getFechaPublicacion() > libroEncontrado.getFechaPublicacion()){
+                libroEncontrado = libro;
+            }
+        }
+        return libroEncontrado;
+    }
+
+    public List<Libro> obtenerLibroOrdenados(){
+        List<Libro> librosOrdenados = new ArrayList<>(listaLibros);
+
+        for(int i = 0; i < librosOrdenados.size() -1; i++){
+            for(int j = i+1; j < librosOrdenados.size(); j++){
+                if(librosOrdenados.get(i).getFechaPublicacion() > librosOrdenados.get(j).getFechaPublicacion()){
+
+                    //Intercambiamos los libros en caso de que libro de la posicion I fue publicado despues que el de la posicion j
+                    Libro temporal = librosOrdenados.get(i);
+                    librosOrdenados.set(i, librosOrdenados.get(j));
+                    librosOrdenados.set(j, temporal);
+                }
+            }
+        }
+        return librosOrdenados;
+    }
+
 }

@@ -49,4 +49,29 @@ public class LibroController {
         return libroService.obtenerLibroPorIsbn(isbn);
     }
 
+    @GetMapping("/fecha/{anio}")
+    public List<Libro> obtenerLibrosPorAnio(@PathVariable int anio){
+        return libroService.obtenerLibrosPorAnio(anio);
+    }
+
+    @GetMapping("/autor/{autor}")
+    public List<Libro> obtenerLibrosPorAutor(@PathVariable String autor){
+        return libroService.obtenerLibrosPorAutor(autor);
+    }
+
+    @GetMapping("/libro-antiguo")
+    public Libro obtenerLibroAntiguo(){
+        return libroService.obtenerLibroAntiguo();
+    }
+
+    @GetMapping("/libro-nuevo")
+    public Libro obtenerLibroNuevo(){
+        return libroService.obtenerLibroNuevo();
+    }
+
+    @GetMapping("/lbros-ordenados")
+    public List<Libro> obtenerLibrosOrdenados(){
+        return libroService.obtenerLibrosOrdenado();
+    }
+
 }

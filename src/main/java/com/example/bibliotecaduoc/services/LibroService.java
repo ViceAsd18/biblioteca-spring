@@ -42,4 +42,24 @@ public class LibroService {
         return libroRepository.obtenerLibroPorIsbn(parIsbn);
     }
 
+    public List<Libro> obtenerLibrosPorAnio(int anio){
+        return libroRepository.obtenerLibrosPorAnio(anio);
+    }
+
+    public List<Libro> obtenerLibrosPorAutor(String parAutor){
+        return libroRepository.obtenerLibrosPorAutor(parAutor);
+    }
+
+    public Libro obtenerLibroAntiguo(){
+        return libroRepository.obtenerLibroAntiguo();
+    }
+
+    public Libro obtenerLibroNuevo(){
+        return libroRepository.obtenerLibroNuevo();
+    }
+
+    public List<Libro> obtenerLibrosOrdenado(){
+        return libroRepository.obtenerLibroOrdenados();
+    }
+
 }
